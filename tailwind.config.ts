@@ -52,6 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Couleurs institutionnelles ivoiriennes
+				government: {
+					orange: 'hsl(var(--government-orange))',
+					green: 'hsl(var(--government-green))',
+					gold: 'hsl(var(--government-gold))',
+					navy: 'hsl(var(--institutional-navy))'
+				},
+				elegant: {
+					gray: 'hsl(var(--elegant-gray))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +94,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'slide-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'institutional-pulse': {
+					'0%, 100%': { boxShadow: '0 0 0 0 hsl(var(--primary) / 0.4)' },
+					'50%': { boxShadow: '0 0 0 10px hsl(var(--primary) / 0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-up': 'slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+				'institutional-pulse': 'institutional-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+			},
+			backgroundImage: {
+				'gradient-institutional': 'var(--gradient-institutional)',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)'
 			}
 		}
 	},
