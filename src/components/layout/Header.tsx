@@ -24,9 +24,9 @@ const Header = ({ onMenuClick }: { onMenuClick?: () => void }) => {
             <Menu className="h-5 w-5" />
           </Button>
           <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">CI</span>
+            <span className="text-white font-bold text-lg">GB</span>
           </div>
-          <div>
+          <div className="hidden md:block">
             <h1 className="text-xl font-bold text-foreground">
               Gestion Budgétaire
             </h1>
