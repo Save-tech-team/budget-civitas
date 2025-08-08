@@ -10,7 +10,7 @@ const AdminSettings = () => {
     { 
       category: "Général", 
       settings: [
-        { name: "Nom de l'organisation", value: "République de Côte d'Ivoire", type: "text" },
+        { name: "Nom de l'organisation", value: "Organisation Budgétaire", type: "text" },
         { name: "Exercice budgétaire", value: "2024", type: "number" },
         { name: "Devise par défaut", value: "FCFA", type: "select" },
         { name: "Fuseau horaire", value: "Africa/Abidjan", type: "select" }

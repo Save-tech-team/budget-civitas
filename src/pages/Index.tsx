@@ -27,7 +27,7 @@ const Index = () => {
               Tableau de Bord Budgétaire
             </h1>
             <p className="text-muted-foreground">
-              Vue d'ensemble de la gestion budgétaire de l'État de Côte d'Ivoire
+              Vue d'ensemble de la gestion budgétaire
             </p>
           </div>
 

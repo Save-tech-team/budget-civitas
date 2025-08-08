@@ -20,11 +20,8 @@ const Header = () => {
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">
-              Gestion Budgétaire de l'État
+              Gestion Budgétaire
             </h1>
-            <p className="text-sm text-muted-foreground">
-              République de Côte d'Ivoire
-            </p>
           </div>
         </div>
 
@@ -47,7 +44,7 @@ const Header = () => {
                 </div>
                 <div className="text-left hidden md:block">
                   <p className="text-sm font-medium">Administrateur</p>
-                  <p className="text-xs text-muted-foreground">admin@budget.gov.ci</p>
+                  <p className="text-xs text-muted-foreground">admin@budget.com</p>
                 </div>
               </Button>
             </DropdownMenuTrigger>

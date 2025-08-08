@@ -20,7 +20,7 @@ const Fournisseurs = () => {
     },
     { 
       id: "F002", 
-      name: "Orange Côte d'Ivoire", 
+      name: "Orange Telecom", 
       category: "Télécommunications", 
       contact: "facturation@orange.ci",
       phone: "+225 20 31 32 33",
