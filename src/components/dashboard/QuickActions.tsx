@@ -12,43 +12,43 @@ import {
 const QuickActions = () => {
   const actions = [
     {
-      title: "Nouvel Engagement",
-      description: "Créer un engagement de dépense",
+      title: "Engagement",
+      description: "Créer un nouvel engagement",
       icon: Plus,
       variant: "default" as const,
-      href: "/engagements/new"
+      href: "/engagements"
     },
     {
-      title: "Saisir Paiement",
-      description: "Enregistrer un nouveau paiement",
+      title: "Paiement",
+      description: "Saisir un paiement",
       icon: CreditCard,
       variant: "default" as const,
-      href: "/paiements/new"
+      href: "/paiements"
     },
     {
-      title: "Import Documents",
-      description: "Importer des pièces justificatives",
+      title: "Import",
+      description: "Documents et factures",
       icon: Upload,
       variant: "outline" as const,
       href: "/documents/import"
     },
     {
-      title: "Gérer Utilisateurs",
-      description: "Administration des comptes",
+      title: "Utilisateurs",
+      description: "Gestion des comptes",
       icon: Users,
       variant: "outline" as const,
       href: "/admin/users"
     },
     {
-      title: "Nouveau Rapport",
-      description: "Générer un rapport personnalisé",
+      title: "Rapport",
+      description: "Générer des analyses",
       icon: FileText,
       variant: "outline" as const,
-      href: "/reporting/new"
+      href: "/reporting"
     },
     {
       title: "Paramètres",
-      description: "Configuration du système",
+      description: "Configuration",
       icon: Settings,
       variant: "outline" as const,
       href: "/admin/settings"

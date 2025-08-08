@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { 
   BarChart3, 
   TrendingUp, 
@@ -15,12 +16,14 @@ import QuickActions from "@/components/dashboard/QuickActions";
 import RecentActivity from "@/components/dashboard/RecentActivity";
 
 const Index = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
       <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-6 space-y-6 animate-fade-in">
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <main className="flex-1 p-4 md:p-6 space-y-6 animate-fade-in">
           {/* En-tête du dashboard */}
           <div className="space-y-2">
             <h1 className="text-3xl font-bold text-foreground">
@@ -97,11 +100,11 @@ const Index = () => {
             />
           </div>
 
-          {/* Contenu principal */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <QuickActions />
-            <RecentActivity />
-          </div>
+          {/* Actions rapides */}
+          <QuickActions />
+
+          {/* Activités récentes */}
+          <RecentActivity />
         </main>
       </div>
     </div>

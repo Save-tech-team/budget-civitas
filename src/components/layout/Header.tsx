@@ -1,4 +1,4 @@
-import { Bell, Settings, User } from "lucide-react";
+import { Bell, Settings, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,12 +9,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 
-const Header = () => {
+const Header = ({ onMenuClick }: { onMenuClick?: () => void }) => {
   return (
-    <header className="bg-card border-b border-border px-6 py-4 sticky top-0 z-50 backdrop-blur-sm bg-card/95">
+    <header className="bg-card border-b border-border px-4 md:px-6 py-4 sticky top-0 z-50 backdrop-blur-sm bg-card/95">
       <div className="flex items-center justify-between">
-        {/* Logo et titre institutionnel */}
-        <div className="flex items-center space-x-4">
+        {/* Menu mobile + Logo et titre */}
+        <div className="flex items-center space-x-3 md:space-x-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={onMenuClick}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
           <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-lg">CI</span>
           </div>
