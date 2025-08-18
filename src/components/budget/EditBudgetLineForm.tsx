@@ -30,6 +30,7 @@ const EditBudgetLineForm = ({ line, open, onOpenChange, onUpdateLine }: EditBudg
   const [code, setCode] = useState("");
   const [nature, setNature] = useState("");
   const [prevision, setPrevision] = useState("");
+  const [allocated, setAllocated] = useState("");
   const [engaged, setEngaged] = useState("");
 
   // Update form when line changes
@@ -38,6 +39,7 @@ const EditBudgetLineForm = ({ line, open, onOpenChange, onUpdateLine }: EditBudg
       setCode(line.code);
       setNature(line.nature);
       setPrevision(line.prevision2025.toString());
+      setAllocated(line.allocated.toString());
       setEngaged(line.engaged.toString());
     }
   }, [line]);
@@ -48,15 +50,17 @@ const EditBudgetLineForm = ({ line, open, onOpenChange, onUpdateLine }: EditBudg
     if (!line) return;
     
     const previsionAmount = parseFloat(prevision) || 0;
+    const allocatedAmount = parseFloat(allocated) || 0;
     const engagedAmount = parseFloat(engaged) || 0;
-    const remaining = line.allocated - engagedAmount;
-    const engagementRate = line.allocated > 0 ? (engagedAmount / line.allocated) * 100 : 0;
+    const remaining = allocatedAmount - engagedAmount;
+    const engagementRate = allocatedAmount > 0 ? (engagedAmount / allocatedAmount) * 100 : 0;
     
     const updatedLine: BudgetLine = {
       ...line,
       code,
       nature,
       prevision2025: previsionAmount,
+      allocated: allocatedAmount,
       engaged: engagedAmount,
       remaining,
       engagementRate: Math.round(engagementRate * 100) / 100
@@ -103,7 +107,7 @@ const EditBudgetLineForm = ({ line, open, onOpenChange, onUpdateLine }: EditBudg
           
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="edit-prevision">Prévision 2025 (FCFA)</Label>
+              <Label htmlFor="edit-prevision">Prévision (FCFA)</Label>
               <Input
                 id="edit-prevision"
                 type="number"
@@ -113,21 +117,26 @@ const EditBudgetLineForm = ({ line, open, onOpenChange, onUpdateLine }: EditBudg
               />
             </div>
             <div>
-              <Label htmlFor="edit-engaged">Engagé (FCFA)</Label>
+              <Label htmlFor="edit-allocated">Alloué (FCFA)</Label>
               <Input
-                id="edit-engaged"
+                id="edit-allocated"
                 type="number"
-                value={engaged}
-                onChange={(e) => setEngaged(e.target.value)}
+                value={allocated}
+                onChange={(e) => setAllocated(e.target.value)}
                 required
               />
             </div>
           </div>
           
           <div>
-            <Label>Alloué (FCFA)</Label>
-            <Input value={line.allocated.toLocaleString()} disabled />
-            <p className="text-sm text-muted-foreground">Calculé automatiquement</p>
+            <Label htmlFor="edit-engaged">Engagé (FCFA)</Label>
+            <Input
+              id="edit-engaged"
+              type="number"
+              value={engaged}
+              onChange={(e) => setEngaged(e.target.value)}
+              required
+            />
           </div>
           
           <div className="flex justify-end gap-2">

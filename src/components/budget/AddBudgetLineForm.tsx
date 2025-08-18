@@ -133,7 +133,7 @@ const AddBudgetLineForm = ({ budgetLines, onAddLine }: AddBudgetLineFormProps) =
           </div>
           
           <div>
-            <Label htmlFor="prevision">Prévision 2025 (FCFA)</Label>
+            <Label htmlFor="prevision">Prévision (FCFA)</Label>
             <Input
               id="prevision"
               type="number"

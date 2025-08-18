@@ -9,7 +9,7 @@ interface BudgetFiltersProps {
 }
 
 const BudgetFilters = ({ selectedYear, onYearChange, onExport }: BudgetFiltersProps) => {
-  const years = [2023, 2024, 2025, 2026, 2027];
+  const years = Array.from({ length: 26 }, (_, i) => 2025 + i); // 2025 to 2050
 
   return (
     <div className="flex gap-2">

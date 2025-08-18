@@ -122,7 +122,13 @@ const Budget = () => {
 
   const handleAddLine = (newLine: Omit<BudgetLine, 'id'>) => {
     const maxId = Math.max(...budgetLines.map(line => line.id), 0);
-    setBudgetLines([...budgetLines, { ...newLine, id: maxId + 1 }]);
+    const newBudgetLine: BudgetLine = { 
+      ...newLine, 
+      id: maxId + 1,
+      remaining: newLine.allocated - newLine.engaged,
+      engagementRate: newLine.allocated > 0 ? (newLine.engaged / newLine.allocated) * 100 : 0
+    };
+    setBudgetLines(prev => [...prev, newBudgetLine]);
   };
 
   const handleUpdateLine = (updatedLine: BudgetLine) => {
@@ -271,7 +277,7 @@ const Budget = () => {
                 <tr className="border-b border-border">
                   <th className="text-left p-4 font-medium">Code</th>
                   <th className="text-left p-4 font-medium">Nature de dépense</th>
-                  <th className="text-right p-4 font-medium">Prévision {selectedYear} (FCFA)</th>
+                  <th className="text-right p-4 font-medium">Prévision (FCFA)</th>
                   <th className="text-right p-4 font-medium">Alloué (FCFA)</th>
                   <th className="text-right p-4 font-medium">Engagé (FCFA)</th>
                   <th className="text-right p-4 font-medium">Disponible (FCFA)</th>
